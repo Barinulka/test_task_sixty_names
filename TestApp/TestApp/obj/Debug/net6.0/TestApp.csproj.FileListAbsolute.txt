@@ -1,0 +1,15 @@
+D:\test_task_sixty_names\TestApp\TestApp\bin\Debug\net6.0\TestApp.exe
+D:\test_task_sixty_names\TestApp\TestApp\bin\Debug\net6.0\TestApp.deps.json
+D:\test_task_sixty_names\TestApp\TestApp\bin\Debug\net6.0\TestApp.runtimeconfig.json
+D:\test_task_sixty_names\TestApp\TestApp\bin\Debug\net6.0\TestApp.dll
+D:\test_task_sixty_names\TestApp\TestApp\bin\Debug\net6.0\TestApp.pdb
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\TestApp.csproj.AssemblyReference.cache
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\TestApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\TestApp.AssemblyInfoInputs.cache
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\TestApp.AssemblyInfo.cs
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\TestApp.csproj.CoreCompileInputs.cache
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\TestApp.dll
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\refint\TestApp.dll
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\TestApp.pdb
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\TestApp.genruntimeconfig.cache
+D:\test_task_sixty_names\TestApp\TestApp\obj\Debug\net6.0\ref\TestApp.dll
