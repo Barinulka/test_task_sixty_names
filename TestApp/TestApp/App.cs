@@ -1,5 +1,5 @@
-﻿using System;
-using TestApp.Controllers;
+﻿using TestApp.Controllers;
+using TestApp.Data;
 
 namespace TestApp
 {
@@ -18,6 +18,12 @@ namespace TestApp
 
         static void Main()
         {
+
+            using (var context = new ApplicationContext())
+            {
+                context.Contracts.ToList();
+            }
+
             Console.WriteLine("Выберите одно из следующих действий\r\n");
 
             ShowNavMenu();
@@ -98,12 +104,13 @@ namespace TestApp
 
                             break;
                     }
-                } catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     Console.WriteLine($"Ошибка: {ex.Message}");
                 }
-                
-                
+
+
 
             }
 
@@ -121,6 +128,6 @@ namespace TestApp
             Console.WriteLine("\n------------------------\n");
         }
 
-       
+
     }
 }
