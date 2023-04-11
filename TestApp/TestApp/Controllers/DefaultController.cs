@@ -136,6 +136,10 @@ namespace TestApp.Controllers
                 )
                 {
                     csvSW.WriteLine("Имя; Фамилия; Отчество; Email; Телефон; Возраст; Город");
+                    result += $"Upload path: {AppDomain.CurrentDomain.BaseDirectory}\n";
+                    result += $"file name: upload_{DateTime.Now.ToString().Replace(':', '_').Replace(' ', '_')}.csv\n";
+                    result += "-------------------\n";
+                    result += "Имя; Фамилия; Отчество; Email; Телефон; Возраст; Город\n";
                     while (reader.Read())
                     {
                         csvSW.WriteLine($"{reader["FirstName"]};{reader["LastName"]};{reader["Patronymic"]};{reader["Email"]};{reader["Phone"]};{reader["Age"]};{reader["City"]};");
