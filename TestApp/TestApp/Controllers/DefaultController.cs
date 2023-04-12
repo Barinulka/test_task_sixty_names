@@ -1,6 +1,14 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
+using TestApp.Data;
+using System.IO;
+using System.Reflection.PortableExecutable;
 
 namespace TestApp.Controllers
 {
@@ -41,7 +49,7 @@ namespace TestApp.Controllers
 
             string command = "SELECT SUM(c.Contract_sum) FROM dbo.Contracts as c " +
                 "INNER JOIN dbo.LegalPersons as l ON l.Id = c.LegalPersonId " +
-                "WHERE c.Status = 'Signed' AND c.NaturalPersonId = 0 AND l.Country = 'Россия'";
+                "WHERE c.Status = 'Signed' AND c.NaturalPersonId = 0 AND l.Country = 'Russia'";
 
             SqlCommand cmd = new SqlCommand(command, _connection);
 
@@ -109,18 +117,16 @@ namespace TestApp.Controllers
         {
             string result = string.Empty;
 
-            try
-            {
+            try { 
                 _connection.Open();
 
-                string command = "SELECT n.FirstName, n.LastName, n.Patronymic, n.Email, n.Phone, n.Age, n.City FROM dbo.NaturalPersons as n " +
-                    "INNER JOIN dbo.Contracts as c ON n.Id = c.NaturalPersonId " +
-                    "WHERE c.Status = 'Signed' AND n.City = 'Москва'";
+                string command = "SELECT n.Id, n.FirstName, n.LastName, n.Patronymic, n.Email, n.Phone, n.Age, n.City FROM dbo.NaturalPersons as n " +
+                    "INNER JOIN dbo.Contracts as c ON c.NaturalPersonId = n.Id " +
+                    "WHERE c.Status = 'Signed' AND n.City = 'Moskow'";
 
                 SqlCommand cmd = new SqlCommand(command, _connection);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-
 
                 using (StreamWriter csvSW = new StreamWriter(
                     $"{AppDomain.CurrentDomain.BaseDirectory}/upload_{DateTime.Now.ToString().Replace(':', '_').Replace(' ', '_')}.csv",
@@ -144,8 +150,7 @@ namespace TestApp.Controllers
 
                 if (reader != null) { reader.Close(); }
 
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
                 result = $"Ошибка: {ex.Message}";
                 _connection.Close();
