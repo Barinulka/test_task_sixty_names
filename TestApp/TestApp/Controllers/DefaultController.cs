@@ -15,7 +15,7 @@ namespace TestApp.Controllers
     internal class DefaultController
     {
 
-        private static string connectionString = ConfigurationManager.ConnectionStrings["ConsoleAppDB"].ConnectionString;
+        private static string connectionString = ConfigurationManager.ConnectionStrings["DatabaseConnect"].ConnectionString;
         private static SqlConnection _connection = new SqlConnection(connectionString);
 
 
@@ -30,7 +30,7 @@ namespace TestApp.Controllers
 
             SqlDataReader reader = cmd.ExecuteReader();
 
-            while (reader.Read()) 
+            while (reader.Read())
             {
                 result = reader.GetInt32(0);
             }
@@ -49,7 +49,7 @@ namespace TestApp.Controllers
 
             string command = "SELECT SUM(c.Contract_sum) FROM dbo.Contracts as c " +
                 "INNER JOIN dbo.LegalPersons as l ON l.Id = c.LegalPersonId " +
-                "WHERE c.Status = 'Signed' AND c.NaturalPersonId = 0 AND l.Country = 'Россия'";
+                "WHERE c.Status = 'Signed' AND c.NaturalPersonId = 0 AND l.Country = 'Russia'";
 
             SqlCommand cmd = new SqlCommand(command, _connection);
 
@@ -97,7 +97,7 @@ namespace TestApp.Controllers
             _connection.Open();
 
             int result = 0;
-           
+
             string command = "UPDATE c " +
                 "SET c.Status = 'Terminated' " +
                 "FROM dbo.Contracts as c " +
@@ -105,10 +105,10 @@ namespace TestApp.Controllers
                 "WHERE n.Age > 60 AND c.Status != 'Terminated'";
 
             SqlCommand cmd = new SqlCommand(command, _connection);
-           
+
             result = cmd.ExecuteNonQuery();
 
-            _connection.Close();    
+            _connection.Close();
 
             return result;
         }
@@ -117,18 +117,16 @@ namespace TestApp.Controllers
         {
             string result = string.Empty;
 
-            try
-            {
+            try { 
                 _connection.Open();
 
-                string command = "SELECT n.FirstName, n.LastName, n.Patronymic, n.Email, n.Phone, n.Age, n.City FROM dbo.NaturalPersons as n " +
-                    "INNER JOIN dbo.Contracts as c ON n.Id = c.NaturalPersonId " +
-                    "WHERE c.Status = 'Signed' AND n.City = 'Москва'";
+                string command = "SELECT n.Id, n.FirstName, n.LastName, n.Patronymic, n.Email, n.Phone, n.Age, n.City FROM dbo.NaturalPersons as n " +
+                    "INNER JOIN dbo.Contracts as c ON c.NaturalPersonId = n.Id " +
+                    "WHERE c.Status = 'Signed' AND n.City = 'Moskow'";
 
                 SqlCommand cmd = new SqlCommand(command, _connection);
 
                 SqlDataReader reader = cmd.ExecuteReader();
-
 
                 using (StreamWriter csvSW = new StreamWriter(
                     $"{AppDomain.CurrentDomain.BaseDirectory}/upload_{DateTime.Now.ToString().Replace(':', '_').Replace(' ', '_')}.csv",
@@ -152,7 +150,8 @@ namespace TestApp.Controllers
 
                 if (reader != null) { reader.Close(); }
 
-            } catch (Exception ex) { 
+            } catch (Exception ex)
+            {
                 result = $"Ошибка: {ex.Message}";
                 _connection.Close();
             }
