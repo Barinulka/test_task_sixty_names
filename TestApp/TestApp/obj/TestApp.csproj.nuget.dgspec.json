@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\C#\\TestApp\\TestApp\\TestApp.csproj": {}
+    "D:\\vdcom_test\\ConsoleApp\\TestApp\\TestApp\\TestApp.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\C#\\TestApp\\TestApp\\TestApp.csproj": {
+    "D:\\vdcom_test\\ConsoleApp\\TestApp\\TestApp\\TestApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\C#\\TestApp\\TestApp\\TestApp.csproj",
+        "projectUniqueName": "D:\\vdcom_test\\ConsoleApp\\TestApp\\TestApp\\TestApp.csproj",
         "projectName": "TestApp",
-        "projectPath": "D:\\Projects\\C#\\TestApp\\TestApp\\TestApp.csproj",
+        "projectPath": "D:\\vdcom_test\\ConsoleApp\\TestApp\\TestApp\\TestApp.csproj",
         "packagesPath": "C:\\Users\\barin\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\C#\\TestApp\\TestApp\\obj\\",
+        "outputPath": "D:\\vdcom_test\\ConsoleApp\\TestApp\\TestApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\barin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,10 +40,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.4, )"
-            },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
               "version": "[5.1.1, )"
@@ -65,10 +61,6 @@
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[7.0.0, )"
-            },
-            "System.Data.Common": {
-              "target": "Package",
-              "version": "[4.3.0, )"
             },
             "System.Data.SqlClient": {
               "target": "Package",
